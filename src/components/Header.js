@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Header = () => {
    const [setShow] = useState(false)
    const handleShow = () => setShow((prevState) => !prevState)
-
+   console.log('hello')
    return (
       <StyledDiv>
          <div>
