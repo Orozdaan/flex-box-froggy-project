@@ -1,7 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
+import { FroggyAction } from '../store/FroggyLevels'
 
 const Editor = () => {
+   const dispatch = useDispatch()
+   const currentLevel = useSelector((state) => state.froggy.currentLevel)
+   const valueStyle = useSelector((state) => state.froggy.value)
+   const level = useSelector((state) =>
+      state.froggy.currentLevels.find((item) => item.level === currentLevel)
+   )
+   const [game, setGame] = useState('')
+   const changeStyle = (e) => {
+      setGame(e.target.value)
+      dispatch(FroggyAction.gameStyle(e.target.value))
+   }
+   console.log(valueStyle)
+
    return (
       <StyledEditor>
          <StyledDiv>
@@ -10,14 +25,17 @@ const Editor = () => {
                <br />
                10
             </StyledNumbers>
-            <pre id="before">
-               #pond {}
-               display: flex;
-            </pre>
-            <textarea />
-            <pre id="after" />
+            <Pre>
+               #pont {'{'} <br /> display: flex;{' '}
+            </Pre>
+            <TextArea
+               height={level.pondHeight}
+               value={game}
+               onChange={changeStyle}
+            />
+            <Pre> {'}'}</Pre>
          </StyledDiv>
-         <button type="button">Следующий</button>
+         <Button isValid={level.isValid}>Next</Button>
       </StyledEditor>
    )
 }
@@ -74,6 +92,7 @@ const StyledDiv = styled.div`
       outline: none;
       resize: none;
       overflow: auto;
+      color: black;
    }
 `
 const StyledNumbers = styled.div`
@@ -85,4 +104,40 @@ const StyledNumbers = styled.div`
    text-align: right;
    background-color: #999;
    color: #d5d5d5;
+`
+const Pre = styled.pre`
+   margin: 0;
+   font-family: 'Source Code Pro', monospace;
+   font-size: 16px;
+   line-height: 1.5;
+   color: #777;
+`
+const TextArea = styled.textarea`
+   display: block;
+   width: calc(100% - 16px);
+   height: ${(props) => `${props.height * 24}px`};
+   margin-left: 16px;
+   border: none;
+   font-family: 'Source Code Pro', monospace;
+   font-size: 16px;
+   outline: none;
+   resize: none;
+   overflow: auto;
+`
+const Button = styled.button`
+   display: inline-block;
+   padding: 0.4em 0.8em;
+   background-color: #d11606;
+   border: none;
+   border-radius: 4px;
+   font-family: 'PT Sans', sans-serif;
+   font-size: 16px;
+   line-height: 24px;
+   color: #fff;
+   position: absolute;
+   right: 1em;
+   bottom: 1em;
+   padding-top: 0.3em;
+   cursor: ${(props) => (props.isValid ? 'pointer' : 'no-drop')};
+   opacity: ${(props) => (props.isValid ? '1' : '0.5')};
 `

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Header from './Header'
 import Instructions from './Instructions'
 import Editor from './Editor'
-import Board from './Board'
+import Board from './RightSideBar.js/Board'
 
 const MainSection = () => {
    return (

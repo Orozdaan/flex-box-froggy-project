@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const Header = () => {
-   const [setShow] = useState(false)
-   const handleShow = () => setShow((prevState) => !prevState)
-   console.log('hello')
+   //    const [setShow] = useState(false)
+   //    const handleShow = () => setShow((prevState) => !prevState)
+   //    console.log('hello')
    return (
       <StyledDiv>
          <div>
@@ -19,7 +18,7 @@ const Header = () => {
                <span> 1</span>
                <span> из</span>
                <span> 24</span>
-               <button type="button" onClick={handleShow}>
+               <button type="button">
                   <span> ▾</span>
                </button>
             </LevelIndicator>
@@ -79,7 +78,7 @@ const LevelIndicator = styled.span`
    line-height: 30px;
    text-align: center;
    cursor: pointer;
-   float: left;
+   /* float: left; */
    height: 30px;
    background-color: rgba(255, 255, 255, 0.2);
 `
