@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
+import { FroggySlice } from './FroggyLevels'
 
-const store = configureStore({
+export const store = configureStore({
    reducer: {
-      // levels:showLevelsSlice.reducer,
+      froggy: FroggySlice.reducer,
    },
 })
-export default store
