@@ -162,7 +162,18 @@ const init = {
          questionDescription: (
             <>
                <p>
-                  Теперь используй <code className="help">align-items</code>{' '}
+                  Теперь используй{' '}
+                  <code className="help">
+                     align-items{' '}
+                     <span className="dropdown">
+                        Выравнивает flex-элементы вдоль пересекаемой оси.
+                        <br />
+                        <br />
+                        <code>flex-start</code> <code>flex-end</code>{' '}
+                        <code>center</code> <br /> <code>baseline</code>{' '}
+                        <code>stretch ()</code>
+                     </span>
+                  </code>{' '}
                   чтоб помочь лягушатам добратся к нижней части пруда. Это CSS
                   свойство выравнивает элементы вертикально и принимает
                   следующие значения:
@@ -273,9 +284,19 @@ const init = {
             <>
                <p>
                   Помоги лягушатам расположиться на своих лилиях используя{' '}
-                  <code className="help">flex-direction</code>. Это CSS свойство
-                  задает направление, в котором будут расположены элементы в
-                  контейнере и принимает следующие значения:
+                  <code className="help">
+                     flex-direction
+                     <span className="dropdown">
+                        Задает направление основной оси.
+                        <br />
+                        <br />
+                        <code>row (default)</code> <code>row-reverse</code>{' '}
+                        <code>column</code> <br /> <code>column-reverse</code>{' '}
+                     </span>
+                  </code>
+                  . Это CSS свойство задает направление, в котором будут
+                  расположены элементы в контейнере и принимает следующие
+                  значения:
                </p>
                <ul>
                   <li>
