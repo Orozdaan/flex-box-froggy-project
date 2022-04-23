@@ -32,7 +32,7 @@
       "react-hooks/exhaustive-deps": "off",
       "react/function-component-definition": "off",
       "max-len": [
-         "error",
+         "off",
          {
             "code": 100,
             "ignoreStrings": true,
@@ -40,10 +40,10 @@
             "ignoreRegExpLiterals": true
          }
       ],
-      "no-console": ["warn", { "allow": ["warn", "error"] }],
-      "react-hooks/rules-of-hooks": "error",
+      "no-console": ["off", { "allow": ["warn", "off"] }],
+      "react-hooks/rules-of-hooks": "off",
       "jsx-a11y/label-has-associated-control": [
-         "error",
+         "off",
          {
             "required": {
                "some": ["nesting", "id"]
@@ -51,11 +51,25 @@
          }
       ],
       "no-param-reassign": [
-         "error",
+         "off",
          { "props": true, "ignorePropertyModificationsFor": ["state"] }
       ],
       "react/destructuring-assignment": "off",
       "no-nested-ternary": "off",
-      "no-nested-ternary":"off"
+      "import/order": [
+         "off",
+         {
+            "pathGroups": [
+               {
+                  "pattern": "~/**",
+                  "group": "external"
+               }
+            ]
+         }
+      ],
+      "no-unused-vars": [
+         "off",
+         { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }
+      ]
    }
 }

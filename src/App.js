@@ -1,10 +1,9 @@
-import './App.css'
-import MainSection from './components/MainSection'
+import FlexBoxFroggy from './components/FlexBoxFroggy/FlexBoxFroggy'
 
 function App() {
    return (
-      <div className="App">
-         <MainSection />
+      <div>
+         <FlexBoxFroggy />
       </div>
    )
 }

@@ -68,10 +68,22 @@ const init = {
             <>
                <p>
                   Используй
-                  <code className="help">justify-content</code>, еще раз, чтоб
-                  помочь этим лягушатам попасть на их лилии. Помни, что это
-                  свойство CSS выравнивает элементы горизонтально и принимает
-                  следующие значения:
+                  <code className="help">
+                     justify-content{' '}
+                     <span className="dropdown">
+                        {' '}
+                        Выравнивает flex-элементы вдоль главной оси.
+                        <br />
+                        <br />
+                        <code>flex-start (default)</code> <code>flex-end</code>{' '}
+                        <code>center</code> <br /> <code>space-between</code>{' '}
+                        <code>space-around</code>
+                        <code>space-evenly</code>
+                     </span>
+                  </code>
+                  , еще раз, чтоб помочь этим лягушатам попасть на их лилии.
+                  Помни, что это свойство CSS выравнивает элементы горизонтально
+                  и принимает следующие значения:
                </p>
                <ul>
                   <li>
@@ -360,87 +372,6 @@ const init = {
             justifyContent: 'space-between',
          },
       },
-      {
-         level: 13,
-         questionDescription: (
-            <p>
-               Помоги лягушатам найти их лилии с помощью{' '}
-               <code className="help">flex-direction</code>,{' '}
-               <code className="help">justify-content</code> и{' '}
-               <code className="help">align-items</code>.
-            </p>
-         ),
-
-         answer:
-            'flex-direction: row-reverse; align-items: flex-end; justify-content: center;',
-         isValid: false,
-         pondHeight: 3,
-         colors: ['green', 'yellow', 'red'],
-         lilypad: {
-            flexDirection: 'row-reverse',
-            alignItems: 'flex-end',
-            justifyContent: 'center',
-         },
-      },
-      // {
-      //   level: 14,
-      //   questionDescription: (
-      //     <>
-      //       <p>
-      //         Иногда изменения порядка отображения элементов в контейнере
-      //         недостаточно. В таких случаях мы можем применить свойство{' '}
-      //         <code className={classes.help}>order</code> для конкретных
-      //         элементов. По умолчанию, значение этого свойства у элементов равно
-      //         0, но мы можем задать положительное или отрицательное целое число
-      //         этому свойству.
-      //       </p>
-      //       <p>
-      //         Используй свойство <code className={classes.help}>order</code>, чтоб
-      //         разместить лягушат на своих лилиях.
-      //       </p>
-      //     </>
-      //   ),
-
-      //   answer: 'order: 1;',
-      //   isValid: false,
-      //   pondHeight: 1,
-      //   colors: ['green', 'yellow', 'red'],
-      //   lilypadItem: { color: 'yellow', style: { order: '2' } },
-      // },
-      // {
-      //   level: 15,
-      //   questionDescription: (
-      //     <>
-      //       <p>
-      //         Используй свойство <code className={classes.help}>order</code>, чтоб
-      //         отправить красного лягушонка на его лилию.
-      //       </p>
-      //     </>
-      //   ),
-
-      //   answer: 'order: -1;',
-      //   isValid: false,
-      //   pondHeight: 1,
-      //   colors: ['green', 'green', 'green', 'red', 'green'],
-      //   lilypadItem: { color: 'red', style: { order: '-1' } },
-      // },
-      // {
-      //   level: 16,
-      //   questionDescription: (
-      //     <>
-      //       <p>
-      //         Используй свойство <code className={classes.help}>order</code>, чтоб
-      //         отправить красного лягушонка на его лилию.
-      //       </p>
-      //     </>
-      //   ),
-
-      //   answer: 'align-self: end;',
-      //   isValid: false,
-      //   pondHeight: 1,
-      //   colors: ['green', 'green', 'yellow', 'green', 'green'],
-      //   lilypadItem: { color: 'yellow', style: { alignSelf: 'flex-end' } },
-      // },
    ],
 }
 
@@ -452,15 +383,22 @@ export const FroggySlice = createSlice({
          state.value = action.payload
       },
       complete(state) {
-         console.log('tuura')
          state.currentLevels = state.currentLevels.map((item) => {
             return item.level === state.currentLevel
                ? { ...item, isValid: true }
                : item
          })
       },
+      nextLevel(state) {
+         state.currentLevel += 1
+      },
+      prevLevel(state) {
+         state.currentLevel -= 1
+      },
+      selectLevel(state, action) {
+         state.currentLevel = action.payload
+      },
       notComplete(state) {
-         console.log('tuuraemes')
          state.currentLevels = state.currentLevels.map((item) => {
             return item.level === state.currentLevel
                ? { ...item, isValid: false }

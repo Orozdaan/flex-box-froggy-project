@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import React from 'react'
 import styled from 'styled-components'
 
@@ -18,20 +17,12 @@ const DivFroggy = styled.div`
 const DivBg = styled.div`
    width: 100%;
    height: 100%;
-   background-image: ${({ color }) => {
-      if (color === 'green') {
-         ;('var(--froggy-green)')
-      } else if (color === 'red') {
-         ;('var(--froggy-red)')
-      } else {
-         ;('var(--froggy-yellow)')
-      }
-   }};
-   //   color === 'green'
-   //      ? 'var(--froggy-green)'
-   //      : color === 'red'
-   //      ? 'var(--froggy-red)'
-   //      : 'var(--froggy-yellow)'};
+   background-image: ${({ color }) =>
+      color === 'green'
+         ? 'var(--froggy-green)'
+         : color === 'red'
+         ? 'var(--froggy-red)'
+         : 'var(--froggy-yellow)'};
    background-position: center center;
    background-size: contain;
    background-repeat: no-repeat;

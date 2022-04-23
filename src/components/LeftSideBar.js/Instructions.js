@@ -7,9 +7,17 @@ const Instructions = () => {
    const levels = useSelector((state) =>
       state.froggy.currentLevels.filter((item) => item.level === current)
    )
-   console.log(levels)
-   return <Div>{levels[current - 1].questionDescription}</Div>
+   return (
+      <Div>
+         {levels.map((item) => (
+            <React.Fragment key={item}>
+               {item.questionDescription}
+            </React.Fragment>
+         ))}
+      </Div>
+   )
 }
+
 const Div = styled.div`
    padding-top: 1rem;
    p,
