@@ -10,7 +10,7 @@ const Editor = () => {
    const level = useSelector((state) =>
       state.froggy.currentLevels.find((item) => item.level === currentLevel)
    )
-
+   // const [cdscsc]
    const [game, setGame] = useState('')
    const changeStyle = (e) => {
       setGame(e.target.value)
